@@ -24,20 +24,25 @@ while($queueRecord = $myDbResults->fetch_assoc()) {
 
 	// dummy check to make sure our origin is responding for that page
 	if(! isset($myPage['info']) || ! isset($myPage['info']['http_code']) || $myPage['info']['http_code'] >= 500)  {
+		// if item is 5xx at the origin, lets remove it from the queue, so we dont hammer the origin with a bunch of requests for a bad page.
+		if($myPage['info']['http_code'] >= 500) {
+			$dbConnection->query("delete from cache.queue where id = {$queueRecord['id']}");
+		}
 		continue;
 	}
 
-	// prepare data to write to DB (and preserve newlines)
+	// prepare data to write to DB (and preserve newlines in the header 'real_escape_string' strips them out)
 	$tmpHeader  = explode("\n",$myPage['header']);
 	for($i=0; $i<count($tmpHeader); $i++) { $tmpHeader[$i] = $dbConnection->real_escape_string($tmpHeader[$i]); }
   	$myHeader = implode("\n",$tmpHeader);
 	$myHtml = $dbConnection->real_escape_string($myPage['html']);
 
 	// set expiry for content -- 1 hour from now
+	//   we could get fancier here, by adjusting the expiry length per http response, or content type, etc.
 	$myExpiry = (new DateTime())->modify("+1 hour")->format('YmdHis');
 
 	// write to back to db - query prep
-	// first check to see if we have the key?
+	//   first check to see if we have the key?
 	$myDbResults = $dbConnection->query("select * from cache.dataStore where `key` = '$key'");
 	if($cacheRecord = $myDbResults->fetch_assoc()) {
 		// if we have results, then we update

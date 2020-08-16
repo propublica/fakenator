@@ -9,7 +9,6 @@ if ($dbConnection->connect_error) {
 }
 
 // use the URL as the key (ie. article/cache-rules-everything-around-me)
-// $myKey =  $_SERVER['REQUEST_URI'];
 if(! $myKey = htmlspecialchars($_GET["q"]) ){
 	$myKey = '/';
 }
