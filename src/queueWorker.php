@@ -87,5 +87,4 @@ function getHtml($key) {
 
 	return [ 'header' => implode("\n",$myHeader), 'html' => $myHtml, 'info' => $myInfo ];
 
-  	// prep vars for sql
 }
