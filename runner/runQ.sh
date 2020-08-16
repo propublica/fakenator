@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #
-# little script to run apache & our queueWorker script on loop
+# our docker entrypoint script to run apache & our queueWorker script on loop
 #
 
 chown -R www-data:www-data /var/www/html
