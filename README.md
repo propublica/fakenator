@@ -35,7 +35,7 @@ Set up to be www.propublica.org, but [swap in](https://github.com/propublica/fak
 ## Under the hood
 
 ### Accessing the database
-You'll need a MySQL client, configured with the following:  
+In order to access the DB, the docker rig needs to be running, and you'll need a MySQL client, configured with the following:  
  - server: 127.0.0.1
  - user: docker
  - pass: docker
