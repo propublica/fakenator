@@ -51,6 +51,16 @@ To see all your cached pages:
 select * from `cache`.`dataStore`
 ```
 
+To invalidate all caches (so that they will be regenerated):
+```
+update `cache`.`dataStore` set `expiry` = "0" where `key` like '%'
+```
+
+To delete all caches:
+```
+truncate `cache`.`dataStore`
+```
+
 To view pending items to be generated in cache:
 ```
 select *  from `cache`.`queue`
