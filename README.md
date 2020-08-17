@@ -4,7 +4,7 @@ this app sets up a local baconator caching system.
 
 ## Local Set-up
 
-**Pre-requisites**  
+**Pre-requisites**
  - [Docker compose](https://docs.docker.com/compose/install/)
 
 **Running the app**  
