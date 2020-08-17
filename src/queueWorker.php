@@ -29,6 +29,18 @@ if(! $myDbResults = $dbConnection->query("select id, payload from cache.queue or
 while($queueRecord = $myDbResults->fetch_assoc()) {
 	$key = $queueRecord['payload'];
 
+	// check expiry
+	if( $myDbResults = $dbConnection->query("select expiry from cache.dataStore where `key` = '$key'")) {
+		$now = date('YmdHis');
+		$recordExpiry = $myDbResults->fetch_assoc()['expiry'];
+		// check to see if we have valid cache
+		if($now < $recordExpiry)  {
+			// remove row from queue and move to next.
+			$dbConnection->query("delete from cache.queue where id = {$queueRecord['id']}");
+			continue;
+		}
+	}
+
 	// generate the HTML & header
 	$myPage = getHtml($key);
 
