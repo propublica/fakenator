@@ -29,7 +29,7 @@ mysql table, defined [here](https://github.com/propublica/fakenator/blob/master/
 TKTKTK   
 
 **Queue Worker**  
-[this script](https://github.com/propublica/fakenator/blob/master/src/queueWorker.php), which is [set up](https://github.com/propublica/fakenator/blob/master/entrypoint.sh#L12) to run on loop.  
+[this script](https://github.com/propublica/fakenator/blob/master/src/queueWorker.php), which is [set up](https://github.com/propublica/fakenator/blob/master/entrypoint.sh#L12-L16) to run on loop.  
 TKTKTK   
 
 **Queue**  
