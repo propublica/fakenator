@@ -2,7 +2,7 @@
 
 this app sets up a local baconator caching system.  
 
-## Local Set-up
+## Set-up
 
 ### Pre-requisites
  - [Docker compose](https://docs.docker.com/compose/install/)
@@ -40,7 +40,7 @@ TKTKTK
 Set up to be www.propublica.org, but [swap in](https://github.com/propublica/fakenator/blob/master/src/queueWorker.php#L93) your own!   
 
 
-## Under the hood
+## Under the Hood
 
 ### Accessing the database
 In order to access the DB, the docker rig needs to be running, and you'll need a MySQL client, configured with the following:  
