@@ -19,3 +19,6 @@ CREATE TABLE `cache`.`queue` (
   UNIQUE KEY `id_UNIQUE` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4;
 
+
+INSERT INTO `cache`.`queue` (payload) VALUE ('/');
+

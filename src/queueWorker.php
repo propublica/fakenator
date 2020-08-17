@@ -78,6 +78,7 @@ while($queueRecord = $myDbResults->fetch_assoc()) {
 	if( $dbConnection->query($query) ) {
 		// if successful, delete item from queue;
 		$dbConnection->query("delete from cache.queue where id = {$queueRecord['id']}");
+		echo  "cache generated for: " . $key . "\n";
 	}
 
 }
