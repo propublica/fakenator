@@ -36,11 +36,11 @@ Set up to be www.propublica.org, but [swap in](https://github.com/propublica/fak
 
 ### Accessing the database
 In order to access the DB, the docker rig needs to be running, and you'll need a MySQL client, configured with the following:  
- - server: 127.0.0.1
- - user: docker
- - pass: docker
- - port: 33306
- - schema: cache
+ - **server**: 127.0.0.1
+ - **user**: docker
+ - **pass**: docker
+ - **port**: 33306
+ - **schema**: cache
 
 To see all cache in your cached pages:
 ```
