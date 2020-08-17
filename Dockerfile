@@ -27,6 +27,6 @@ ENV DBHOST=db \
 	DBPORT=3306
 
 EXPOSE 80
-ADD ["runner/runQ.sh","/"]
-RUN chmod +x /runQ.sh
-ENTRYPOINT ["/runQ.sh"]
+ADD ["entrypoint.sh","/"]
+RUN chmod +x /entrypoint.sh
+ENTRYPOINT ["/entrypoint.sh"]
