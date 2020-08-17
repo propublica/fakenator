@@ -38,7 +38,7 @@ TKTKTK
 
 **Origin**  
 Set up to be www.propublica.org, but [swap in](https://github.com/propublica/fakenator/blob/master/src/queueWorker.php#L93) your own!   
-(For example, try replacing it with `https://www.vox.com/`)  
+(For example, try replacing it with `https://www.vox.com/` or `https://slate.com`)  
 
 
 ## Under the Hood
