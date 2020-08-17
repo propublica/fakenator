@@ -4,5 +4,5 @@
 
 RewriteEngine On
 RewriteCond %{REQUEST_URI} !^/reverseProxy.php$
-RewriteCond %{REQUEST_URI} !\.(css|gif|ico|jpg|js|png|swf|txt|svg|woff|ttf|eot)$
+# RewriteCond %{REQUEST_URI} !\.(gif|ico|jpg|js|png|swf|txt|svg|woff|ttf|eot)$
 RewriteRule ^(.*)$ reverseProxy.php?q=$1 [L,QSA]
