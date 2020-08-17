@@ -9,7 +9,9 @@ if ($dbConnection->connect_error) {
 }
 
 // use the URL as the key (ie. article/cache-rules-everything-around-me)
+//   we have configured our .htaccess file to pass the path via query string
 if(! $myKey = htmlspecialchars($_GET["q"]) ){
+	// if we didnt have a path, we assume the homepage
 	$myKey = '/';
 }
 
