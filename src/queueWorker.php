@@ -72,24 +72,24 @@ function getHtml($key) {
 
 	// generate HTML & header
 	$ch = curl_init();
-	$myHeader = [];
+	$tmpHeader = [];
 	curl_setopt($ch, CURLOPT_URL, $myUrl);
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 	curl_setopt($ch, CURLOPT_HEADERFUNCTION,
-		function($curl, $header) use (&$myHeader) {
+		function($curl, $header) use (&$tmpHeader) {
 			$len = strlen($header);
 			$header = explode(':', $header, 2);
 			if (count($header) < 2) // ignore invalid headers
 				return $len;
 
-			$myHeader[] = strtolower(trim($header[0])) . ':' . trim($header[1]);
+			$tmpHeader[] = strtolower(trim($header[0])) . ':' . trim($header[1]);
 
     		return $len;
   		}
   	);
   	$myHtml = curl_exec($ch);
 	$myInfo = curl_getinfo($ch);
+	$myHeader = implode("\n",$tmpHeader);
 
-	return [ 'header' => implode("\n",$myHeader), 'html' => $myHtml, 'info' => $myInfo ];
-
+	return [ 'header' => $myHeader, 'html' => $myHtml, 'info' => $myInfo ];
 }
