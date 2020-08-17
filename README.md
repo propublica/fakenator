@@ -4,22 +4,19 @@ this app sets up a local baconator caching system.
 
 ## Local Set-up
 
-**Pre-requisites**
+**Pre-requisites**  
  - [Docker compose](https://docs.docker.com/compose/install/)
 
-**Running the app**
+**Running the app**  
 To run, clone repo and use *docker-compose*, from the root:
 
 `docker-compose build &&  docker-compose up`
 
-Site will be accessible at:
-http://localhost:8888/
+Site will be accessible at http://localhost:8888/
 
 It fronts www.propublica.org
 
-The first time you browse to a page, it will 404 and queue page  for generation.  
-The page will refresh after 5 sec and should load the right content.  
-Subsequent visits, this app will serve the cached content, if cache is expired, page will be queued for regeneration.
+The first time you browse to a page, it will 404 and queue page for generation. The page will refresh after 5 sec and should load the right content. Subsequent visits, this app will serve the cached content, if cache is expired, page will be queued for regeneration.
 
 ## Baconator Elements
 
