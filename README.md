@@ -20,13 +20,13 @@ Subsequent visits will server the cached content, if cache is expired, page will
 [this script](https://github.com/propublica/fakenator/blob/master/src/reverseProxy.php), which is [configured](https://github.com/propublica/fakenator/blob/master/src/.htaccess) to receive all requests. TKTKTK   
 
 ### Data Store
-mysql table, defined [here](https://github.com/propublica/fakenator/blob/master/createTables.sql#L5) TKTKTK   
+mysql table, defined [here](https://github.com/propublica/fakenator/blob/master/createTables.sql#L5). Houses cache, served by the reverse proxy script. TKTKTK   
 
 ### Queue Worker
 [this script](https://github.com/propublica/fakenator/blob/master/src/queueWorker.php), which is [set up](https://github.com/propublica/fakenator/blob/master/entrypoint.sh#L12) to run on loop. TKTKTK   
 
 ### Queue
-mysql table, defined [here](https://github.com/propublica/fakenator/blob/master/createTables.sql#L15) TKTKTK   
+mysql table, defined [here](https://github.com/propublica/fakenator/blob/master/createTables.sql#L15). Holds pages to be regenerated -- managed by queue worker script. TKTKTK   
 
 ### Origin
 Set up to be www.propublica.org, but [swap in](https://github.com/propublica/fakenator/blob/master/src/queueWorker.php#L92) your own!   
