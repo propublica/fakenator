@@ -1,6 +1,6 @@
 <?php
 
-// connect to our cache data story db
+// connect to DB
 $dbConnection =  new mysqli(getenv('DBHOST'), getenv('DBUSR'), getenv('DBPASS'), getenv('DBSCHEMA'), getenv('DBPORT'));
 // if we cant connect, respond with server error
 if ($dbConnection->connect_error) {
@@ -30,7 +30,7 @@ if($cacheRecord = $myDbResults->fetch_assoc()) {
 		$dbConnection->query("insert into cache.queue (payload) values ('$myKey')");
 	}
 
-// if we did not have data, serve a 404 and queue page to get generated
+// if we did not have data, serve a 404 (with refresh header) and queue page to get generated
 } else {
 	// send response
 	respondWith("HTTP/1.0 404 Not Found\nRefresh: 10;", 'Page Not Found.');
