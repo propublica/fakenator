@@ -16,7 +16,7 @@ Site will be accessible at http://localhost:8888/
 
 It fronts www.propublica.org
 
-The first time you browse to a page, it will 404 and queue page for generation. The page will refresh after 5 sec and should load the right content. Subsequent visits, this app will serve the cached content, if cache is expired, page will be queued for regeneration.
+The first time you browse to a page, it will 404 and queue page for generation. The page will refresh after 5 seconds and load the right content. On subsequent visits to the same page, this app will serve the cached content, if cache is expired, page will be queued for regeneration.
 
 ## Baconator Elements
 
