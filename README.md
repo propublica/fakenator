@@ -4,10 +4,10 @@ this app sets up a local baconator caching system.
 
 ## Local Set-up
 
-**Pre-requisites**
+### Pre-requisites
  - [Docker compose](https://docs.docker.com/compose/install/)
 
-**Running the app**  
+### Running the app  
 To run, clone repo and use *docker-compose*, from the root:
 
 `docker-compose build &&  docker-compose up`
