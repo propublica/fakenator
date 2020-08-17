@@ -1,4 +1,4 @@
-# fakenator
+# 🥓 Baconator (local) 🥓
 
 this app sets up a local baconator caching system.  
 
