@@ -3,7 +3,7 @@
 // connect to DB
 $dbConnection =  new mysqli(getenv('DBHOST'), getenv('DBUSR'), getenv('DBPASS'), getenv('DBSCHEMA'), getenv('DBPORT'));
 if ($dbConnection->connect_error) {
-	echo "houston, we have a problem.\n";
+	echo "unable to connect to database server.\n";
 	exit;
 }
 
