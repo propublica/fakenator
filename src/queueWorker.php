@@ -107,7 +107,9 @@ function getHtml($key) {
     			return $len;
   		}
   	);
-  	$myHtml = curl_exec($ch);
+	$myHtml = curl_exec($ch);
+	// parse out absolute URLs to origin, 
+  	$myHtml = str_ireplace('href="'.$myOrigin,'href="/',$myHtml);
 	$myInfo = curl_getinfo($ch);
 	$myHeader = implode("\n",$tmpHeader);
 
