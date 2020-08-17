@@ -46,7 +46,7 @@ In order to access the DB, the docker rig needs to be running, and you'll need a
  - **port**: 33306
  - **schema**: cache
 
-To see all cache in your cached pages:
+To see all your cached pages:
 ```
 select * from `cache`.`dataStore`
 ```
