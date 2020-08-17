@@ -10,8 +10,18 @@ if ($dbConnection->connect_error) {
 // find the first five queued items.
 // this way our process wont run too long, and we will set a cron to run it fairly frequently.
 if(! $myDbResults = $dbConnection->query("select id, payload from cache.queue order by id limit 0, 5") ) {
-	// if we err'ed out here, we likely dont have a "cache" schema
-	echo "Error running query against cache database. If the database has not been set up, run:\n\nbash bin/startUp.sh\n\n";
+	// if we err'ed out here, we likely dont have a "cache" schema, so lets build it.
+	echo "Running  start-up DB  script...\n\n";
+
+	// grab script text
+	$createScript = file_get_contents(dirname(__DIR__) . '/createTables.sql');
+
+	// break up by query & run each
+	$lines = explode(";\n",$createScript);
+	foreach($lines as $query) { 
+		if( $query ) { $dbConnection->query($query); } 
+	}
+
 	exit;
 }
 

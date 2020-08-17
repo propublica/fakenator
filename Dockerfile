@@ -18,6 +18,7 @@ RUN usermod -u 1000 www-data \
 
 # Copy the code from our local repo into the Docker container
 ADD src /var/www/html/
+ADD db/createTables.sql /var/www/
 
 ENV DBHOST=db \
 	DBUSR=root \
