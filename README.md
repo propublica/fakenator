@@ -37,7 +37,7 @@ Set up to be www.propublica.org, but [swap in](https://github.com/propublica/fak
 ### Accessing the database
 You'll need a MySQL client, configured with the following:  
  - server: 127.0.0.1
- - user: root
+ - user: docker
  - pass: docker
  - port: 33306
  - schema: cache
