@@ -1,6 +1,6 @@
 # fakenator
 
-this app sets up a local baconator caching system.
+this app sets up a local baconator caching system.  
 To run, clone repo and use *docker-compose*, from the root:
 
 `docker-compose build &&  docker-compose up`
