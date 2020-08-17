@@ -89,12 +89,11 @@ function getHtml($key) {
 		function($curl, $header) use (&$tmpHeader) {
 			$len = strlen($header);
 			$header = explode(':', $header, 2);
-			if (count($header) < 2) // ignore invalid headers
+			if (count($header) < 2 || strtolower(trim($header[0])) == 'date') // ignore invalid headers & 'date' header
 				return $len;
 
 			$tmpHeader[] = strtolower(trim($header[0])) . ':' . trim($header[1]);
-
-    		return $len;
+    			return $len;
   		}
   	);
   	$myHtml = curl_exec($ch);
