@@ -86,13 +86,24 @@ function getHtml($key) {
 	curl_setopt($ch, CURLOPT_URL, $myUrl);
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 	curl_setopt($ch, CURLOPT_HEADERFUNCTION,
-		function($curl, $header) use (&$tmpHeader) {
+		function($curl, $header) use (&$tmpHeader, &$myOrigin) {
 			$len = strlen($header);
 			$header = explode(':', $header, 2);
-			if (count($header) < 2 || strtolower(trim($header[0])) == 'date') // ignore invalid headers & 'date' header
+
+			// ignore invalid headers & "date" header
+			if(count($header) < 2 || $header[0] == 'date')
 				return $len;
 
-			$tmpHeader[] = strtolower(trim($header[0])) . ':' . trim($header[1]);
+			// normalize values
+			for($i=0; $i<count($header); $i++) { 
+				$header[$i] = strtolower(trim($header[$i])); 
+			}
+
+			// if we have a 'location' header, lets parse out the origin if its there, so we point to our caching layer.
+			if($header[0] == 'location')
+				$header[1] = str_replace( $myOrigin , '/', $header[1]);
+
+			$tmpHeader[] = $header[0] . ': ' . $header[1];
     			return $len;
   		}
   	);
