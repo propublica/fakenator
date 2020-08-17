@@ -17,17 +17,17 @@ Subsequent visits will server the cached content, if cache is expired, page will
 ## Baconator Elements
 
 ### Reverse Proxy
-TKTKTK   
+[this script](https://github.com/propublica/fakenator/blob/master/src/reverseProxy.php) TKTKTK   
 
 ### Data Store
-TKTKTK   
+mysql table, defined [here](https://github.com/propublica/fakenator/blob/master/createTables.sql#L5) TKTKTK   
 
 ### Queue Worker
-TKTKTK   
+[this script](https://github.com/propublica/fakenator/blob/master/src/queueWorker.php) TKTKTK   
 
 ### Queue
-TKTKTK   
+mysql table, defined [here](https://github.com/propublica/fakenator/blob/master/createTables.sql#L15) TKTKTK   
 
 ### Origin
-TKTKTK   
+Set up to be www.propublica.org, but [swap in](https://github.com/propublica/fakenator/blob/master/src/queueWorker.php#L92) your own!   
 
