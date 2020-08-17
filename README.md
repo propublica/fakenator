@@ -33,7 +33,7 @@ mysql table, defined [here](https://github.com/propublica/fakenator/blob/master/
 TKTKTK   
 
 **Origin**  
-Set up to be www.propublica.org, but [swap in](https://github.com/propublica/fakenator/blob/master/src/queueWorker.php#L92) your own!   
+Set up to be www.propublica.org, but [swap in](https://github.com/propublica/fakenator/blob/master/src/queueWorker.php#L93) your own!   
 
 
 ## Under the hood
