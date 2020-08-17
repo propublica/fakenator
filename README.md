@@ -21,7 +21,7 @@ The first time you browse to a page, it will 404 and queue page for generation. 
 ## Baconator Elements
 
 **Reverse Proxy**  
-[this script](https://github.com/propublica/fakenator/blob/master/src/reverseProxy.php), which is [configured](https://github.com/propublica/fakenator/blob/master/src/.htaccess) to receive all requests.  
+[this script](https://github.com/propublica/fakenator/blob/master/src/reverseProxy.php), which is [configured](https://github.com/propublica/fakenator/blob/master/src/.htaccess) to receive all requests to the server.  
 TKTKTK   
 
 **Data Store**  

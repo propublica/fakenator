@@ -63,7 +63,7 @@ while($queueRecord = $myDbResults->fetch_assoc()) {
 	//   we could get fancier here, by adjusting the expiry length per http response, or content type, etc.
 	$myExpiry = (new DateTime())->modify("+1 hour")->format('YmdHis');
 
-	// write to back to db - query prep
+	// write to db - query prep
 	//   first check to see if we have the key?
 	$myDbResults = $dbConnection->query("select * from cache.dataStore where `key` = '$key'");
 	if($cacheRecord = $myDbResults->fetch_assoc()) {
