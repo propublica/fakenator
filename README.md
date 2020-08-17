@@ -51,7 +51,7 @@ To see all your cached pages:
 select * from `cache`.`dataStore`
 ```
 
-To invalidate all caches (so that they will be regenerated):
+To invalidate all caches (so that they will be regenerated after the next visit to that page):
 ```
 update `cache`.`dataStore` set `expiry` = "0" where `key` like '%'
 ```
