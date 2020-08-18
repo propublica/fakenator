@@ -90,7 +90,7 @@ while($queueRecord = $myDbResults->fetch_assoc()) {
 function getHtml($key) {
 	
 	// get  URL from key
-	$myOrigin = 'https://www.propublica.org/';
+	$myOrigin = 'https://www.propublica.org/';  // WITH TRAILING SLASHH
 	$myUrl = $myOrigin . $key;
 
 	// generate HTML & header
@@ -122,7 +122,7 @@ function getHtml($key) {
   	);
 	$myHtml = curl_exec($ch);
 	// parse out absolute URLs to origin, 
-  	$myHtml = str_ireplace('href="'.$myOrigin,'href="/',$myHtml);
+	$myHtml = preg_replace('#href="'.$myOrigin.'?#i','href="/',$myHtml);
 	$myInfo = curl_getinfo($ch);
 	$myHeader = implode("\n",$tmpHeader);
 
