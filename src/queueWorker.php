@@ -100,26 +100,27 @@ function getHtml($key) {
 	$tmpHeader = [];
 	curl_setopt($ch, CURLOPT_URL, $myUrl);
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+	// handy CURLOPT which allows us to run a function on each header entry
 	curl_setopt($ch, CURLOPT_HEADERFUNCTION,
 		function($curl, $header) use (&$tmpHeader, &$myOrigin) {
 			$len = strlen($header);
 			$header = explode(':', $header, 2);
 
+			// normalize values
+			for($i=0; $i<count($header); $i++)
+				$header[$i] = strtolower(trim($header[$i])); 
+
 			// ignore invalid headers & "date" header
 			if(count($header) < 2 || $header[0] == 'date')
 				return $len;
 
-			// normalize values
-			for($i=0; $i<count($header); $i++) { 
-				$header[$i] = strtolower(trim($header[$i])); 
-			}
-
 			// if we have a 'location' header, lets parse out the origin if its there, so we point to our caching layer.
 			if($header[0] == 'location')
-				$header[1] = str_replace( $myOrigin , '/', $header[1]);
+				$header[1] = preg_replace('#'.$myOrigin.'?#i',  '/', $header[1]);
 
+			// now we load them up for retrieval later
 			$tmpHeader[] = $header[0] . ': ' . $header[1];
-    			return $len;
+			return $len;
   		}
   	);
 	$myHtml = curl_exec($ch);
