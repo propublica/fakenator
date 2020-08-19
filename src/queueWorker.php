@@ -29,13 +29,15 @@ if(! $myDbResults = $dbConnection->query("select id, payload from cache.queue or
 while($queueRecord = $myDbResults->fetch_assoc()) {
 	$key = $queueRecord['payload'];
 
-	// check expiry
-	if( $myDbResults = $dbConnection->query("select expiry from cache.dataStore where `key` = '$key'")) {
+	// grab our cache record, if we have it
+	$myDbResults = $dbConnection->query("select * from cache.dataStore where `key` = '$key'");
+	$cacheRecord = $myDbResults->fetch_assoc();
+
+	// if we do have cache, lets check its expiry
+	if( $cacheRecord ) {
 		$now = date('YmdHis');
-		$recordExpiry = $myDbResults->fetch_assoc()['expiry'];
-		// check to see if we have valid cache
-		if($now < $recordExpiry)  {
-			// remove row from queue and move to next.
+		if($now < $cacheRecord['expiry'])  {
+			// cache is still valid, so lets remove this row from queue and move to next.
 			$dbConnection->query("delete from cache.queue where id = {$queueRecord['id']}");
 			continue;
 		}
@@ -55,7 +57,9 @@ while($queueRecord = $myDbResults->fetch_assoc()) {
 
 	// prepare data to write to DB (and preserve newlines in the header 'real_escape_string' strips them out)
 	$tmpHeader  = explode("\n",$myPage['header']);
-	for($i=0; $i<count($tmpHeader); $i++) { $tmpHeader[$i] = $dbConnection->real_escape_string($tmpHeader[$i]); }
+	for($i=0; $i<count($tmpHeader); $i++) { 
+		$tmpHeader[$i] = $dbConnection->real_escape_string($tmpHeader[$i]); 
+	}
   	$myHeader = implode("\n",$tmpHeader);
 	$myHtml = $dbConnection->real_escape_string($myPage['html']);
 
@@ -64,10 +68,8 @@ while($queueRecord = $myDbResults->fetch_assoc()) {
 	$myExpiry = (new DateTime())->modify("+1 hour")->format('YmdHis');
 
 	// write to db - query prep
-	//   first check to see if we have the key?
-	$myDbResults = $dbConnection->query("select * from cache.dataStore where `key` = '$key'");
-	if($cacheRecord = $myDbResults->fetch_assoc()) {
-		// if we have results, then we update
+	if( $cacheRecord ) {
+		// if we have cache, then we update
 		$query = "update cache.dataStore set `html` = '$myHtml', `header` = '$myHeader', `expiry` = '$myExpiry' where `key` = '$key'";
 	} else {
 		// if we did not have data we insert
@@ -90,7 +92,7 @@ while($queueRecord = $myDbResults->fetch_assoc()) {
 function getHtml($key) {
 	
 	// get  URL from key
-	$myOrigin = 'https://www.propublica.org/';  // WITH TRAILING SLASHH
+	$myOrigin = 'https://www.propublica.org/';  // WITH TRAILING SLASH
 	$myUrl = $myOrigin . $key;
 
 	// generate HTML & header
