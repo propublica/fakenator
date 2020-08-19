@@ -4,7 +4,7 @@
 $dbConnection =  new mysqli(getenv('DBHOST'), getenv('DBUSR'), getenv('DBPASS'), getenv('DBSCHEMA'), getenv('DBPORT'));
 // if we cant connect, respond with server error
 if ($dbConnection->connect_error) {
-	respondWith("HTTP/1.0 503 Site Unavailable", 'Site temporarily unavailable.');
+	respondWith("HTTP/1.1 503 Site Unavailable", 'Site temporarily unavailable.');
 	exit;
 }
 
@@ -33,7 +33,7 @@ if($cacheRecord = $myDbResults->fetch_assoc()) {
 // if we did not have data, serve a 404 (with refresh header) and queue page to get generated
 } else {
 	// send response
-	respondWith("HTTP/1.0 404 Not Found\nRefresh: 5;", 'Page Not Found.');
+	respondWith("HTTP/1.1 404 Not Found\nRefresh: 5;", 'Page Not Found.');
 	// add to queue
 	$dbConnection->query("insert into cache.queue (payload) values ('$myKey')");
 }

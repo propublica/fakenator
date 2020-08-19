@@ -124,7 +124,7 @@ function getHtml($key) {
 	// parse out absolute URLs to origin, 
 	$myHtml = preg_replace('#href="'.$myOrigin.'?#i','href="/',$myHtml);
 	$myInfo = curl_getinfo($ch);
-	$myHeader = implode("\n",$tmpHeader);
+	$myHeader = "HTTP/1.1 " . $myInfo['http_code'] . "\n" . implode("\n",$tmpHeader);
 
 	return [ 'header' => $myHeader, 'html' => $myHtml, 'info' => $myInfo ];
 }
