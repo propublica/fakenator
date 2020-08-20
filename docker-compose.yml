@@ -3,7 +3,7 @@ services:
     web:
         build:
           context: .
-          dockerfile: Dockerfile
+          dockerfile: helpers/Dockerfile
         depends_on:
             - db
         ports:

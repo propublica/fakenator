@@ -18,7 +18,7 @@ RUN usermod -u 1000 www-data \
 
 # Copy the code from our local repo into the Docker container
 ADD src /var/www/html/
-ADD createTables.sql /var/www/
+ADD helpers/createTables.sql /var/www/
 
 ENV DBHOST=db \
 	DBUSR=root \
@@ -27,6 +27,6 @@ ENV DBHOST=db \
 	DBPORT=3306
 
 EXPOSE 80
-ADD ["entrypoint.sh","/"]
+ADD ["helpers/entrypoint.sh","/"]
 RUN chmod +x /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
