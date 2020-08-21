@@ -1,6 +1,10 @@
 # 🥓 Baconator (local) 🥓
 
-this app sets up a static site generator on localhost. 
+this app sets up a static site generator on localhost.   
+
+a quick note on the name:  
+to generate static HTML = "baking a page out".  So what was `bake-n-ator` quickly became `baconator`.  
+Also, naming things is hard ¯\_(ツ)_/¯
 
 ## Set-up
 
