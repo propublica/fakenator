@@ -22,23 +22,18 @@ The first time you browse to a page, it will 404 and queue page for generation. 
 
 **Reverse Proxy**  
 [this script](https://github.com/propublica/fakenator/blob/master/src/reverseProxy.php), which is [configured](https://github.com/propublica/fakenator/blob/master/src/.htaccess) to receive all requests to the server.  
-TKTKTK   
 
 **Data Store**  
 mysql table, defined [here](https://github.com/propublica/fakenator/blob/master/helpers/createTables.sql#L5). Houses cache, served by the reverse proxy script.  
-TKTKTK   
 
 **Queue Worker**  
 [this script](https://github.com/propublica/fakenator/blob/master/src/queueWorker.php), which is [set up](https://github.com/propublica/fakenator/blob/master/helpers/entrypoint.sh#L12-L16) to run on loop.  
-TKTKTK   
 
 **Queue**  
 mysql table, defined [here](https://github.com/propublica/fakenator/blob/master/helpers/createTables.sql#L15). Holds pages to be regenerated -- managed by queue worker script.  
-TKTKTK   
 
 **Origin**  
 Set up to be www.propublica.org, but [swap in](https://github.com/propublica/fakenator/blob/master/src/queueWorker.php#L93) your own!   
-(For kicks, try replacing it with `https://www.vox.com/` or `https://slate.com/`)  
 
 
 ## Under the Hood
