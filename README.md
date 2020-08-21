@@ -1,6 +1,6 @@
 # 🥓 Baconator (local) 🥓
 
-this app sets up a static site generator on localhost.   
+this app sets up a static site generator on localhost. Read more about it [here](https://www.propublica.org/nerds/).
 
 a quick note on the name:  
 To generate static HTML = "baking a page out".  
