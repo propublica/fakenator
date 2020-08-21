@@ -4,7 +4,7 @@ this app sets up a static site generator on localhost. Read more about it [here]
 
 A quick note on the name --  
 To generate static HTML = "baking a page out".  
-So what was `bake-n-ator` quickly became `baconator`.  
+So what started as `bake-n-ator` quickly became `baconator`.  
 Also, naming things is hard ¯\\\_(ツ)\_/¯.
 
 ## Set-up
