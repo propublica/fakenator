@@ -1,6 +1,6 @@
 # 🥓 Baconator (local) 🥓
 
-this app sets up a baconator caching system on localhost. 
+this app sets up a static site generator on localhost. 
 
 ## Set-up
 

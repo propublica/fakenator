@@ -33,7 +33,7 @@ if($cacheRecord = $myDbResults->fetch_assoc()) {
 // if we did not have data, serve a 404 (with refresh header) and queue page to get generated
 } else {
 	// send response
-	respondWith("HTTP/1.1 404 Not Found\nRefresh: 5;", "Generating cache for $myKey...");
+	respondWith("HTTP/1.1 404 Not Found\nRefresh: 5;\nContent-Type: text/html; charset=UTF-8", "Generating cache for <b>$myKey</b></br></br>Page will automatically refresh");
 	// add to queue
 	$dbConnection->query("insert into cache.queue (payload) values ('$myKey')");
 }
