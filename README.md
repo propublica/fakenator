@@ -18,7 +18,7 @@ To run, clone repo and use *docker-compose*, from the root:
 ```
 > git clone https://github.com/propublica/fakenator.git
 > cd fakenator/
-> docker-compose build &&  docker-compose up
+> docker-compose build && docker-compose up
 ```
 
 Site will be accessible at http://localhost:8888/
