@@ -15,7 +15,11 @@ Also, naming things is hard ¯\\\_(ツ)\_/¯.
 ### Running the app  
 To run, clone repo and use *docker-compose*, from the root:
 
-`docker-compose build &&  docker-compose up`
+```
+> git clone https://github.com/propublica/fakenator.git
+> cd fakenator/
+> docker-compose build &&  docker-compose up
+```
 
 Site will be accessible at http://localhost:8888/
 
