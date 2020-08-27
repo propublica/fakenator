@@ -12,7 +12,7 @@ Also, naming things is hard ¯\\\_(ツ)\_/¯.
 ### Pre-requisites
  - [Docker compose](https://docs.docker.com/compose/install/)
 
-### Running the app  
+## Running the app  
 To run, clone repo and use *docker-compose*, from the root:
 
 ```
@@ -55,6 +55,7 @@ In order to access the DB, the docker rig needs to be running, and you'll need a
  - **port**: 33306
  - **schema**: cache
 
+### Useful queries
 To see all your cached pages:
 ```
 select * from `cache`.`dataStore`
