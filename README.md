@@ -42,7 +42,7 @@ mysql table, defined [here](https://github.com/propublica/fakenator/blob/master/
 mysql table, defined [here](https://github.com/propublica/fakenator/blob/master/helpers/createTables.sql#L15). Holds pages to be regenerated -- managed by queue worker script.  
 
 **Origin**  
-Set up to be www.propublica.org, but [swap in](https://github.com/propublica/fakenator/blob/master/src/queueWorker.php#L93) your own!   
+Set up to be www.propublica.org, but [swap in](https://github.com/propublica/fakenator/blob/master/src/queueWorker.php#L95) your own!   
 
 
 ## Under the Hood
