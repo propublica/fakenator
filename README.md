@@ -21,11 +21,11 @@ To run, clone repo and use *docker-compose*, from the root:
 > docker-compose build && docker-compose up
 ```
 
-Site will be accessible at http://localhost:8888/
+After docker builds the web server and database server, it will queue up the home page for generation, and shortly there after, the site will be accessible at http://localhost:8888/
 
 It fronts www.propublica.org
 
-The first time you browse to a page, it will 404 and queue that page for generation. Your browser should refresh after 5 seconds and load the cached content. On subsequent visits to the same page, this app will serve from it cache. If a cache row has expired, its corresponding page will be queued for regeneration.
+The first time you browse to a new page, it will 404 and queue that page for generation. Your browser should refresh after 5 seconds and load the cached content. On subsequent visits to the same page, this app will serve from it cache. If a cache row has expired, its corresponding page will be queued for regeneration.
 
 ## Baconator Elements
 
