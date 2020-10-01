@@ -1,15 +1,15 @@
 # 🥓 Baconator (local) 🥓
 
-this app sets up a static site generator on localhost. Read more about it [here](https://www.propublica.org/nerds/).
+This app sets up a static site generator on localhost. Read more about it on ProPublica’s [Nerd Blog](https://www.propublica.org/nerds/baconator-news-site-caching-reverse-proxy-queue-worker).
 
-A quick note on the name -- to generate static HTML = "baking a page out". So what started as `bake-n-ator` quickly became `baconator`. Also, naming things is hard ¯\\\_(ツ)\_/¯.
+A quick note on the name: In 2018, we began designing and implementing a new caching layer for ProPublica’s website. Inspired by how static site generators “bake a page out,” we referred to it as the `bake-n-ator`, which quickly became `baconator`. Also, naming things is hard ¯\\\_(ツ)\_/¯.
 
-## Set-up
+## Setup
 
-### Pre-requisites
+### Prerequisites
  - [Docker compose](https://docs.docker.com/compose/install/)
 
-## Running the app  
+## Running the App  
 To run, clone repo and use *docker-compose*, from the root:
 
 ```
