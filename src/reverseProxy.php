@@ -16,7 +16,7 @@ if(! $myOrigin = $myDbResults->fetch_assoc()) {
 	exit;
 }
 
-// use the URL as the key (ie. article/cache-rules-everything-around-me)
+// use the URL as the key (ie. path/to/my/page )
 //   we have configured our .htaccess file to pass the path via query string
 if(! $myKey = htmlspecialchars($_GET["q"]) ){
 	// if we didnt have a path, we assume the homepage
