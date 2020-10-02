@@ -11,12 +11,14 @@ CREATE TABLE `cache`.`dataStore` (
   UNIQUE KEY `key_UNIQUE` (`key`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+
 CREATE TABLE `cache`.`queue` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `payload` varchar(512) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4;
+
 
 CREATE TABLE `cache`.`info` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
