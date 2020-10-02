@@ -1,0 +1,7 @@
+#
+# lets route all requests to our reverseProxy script
+#
+
+RewriteEngine On
+RewriteCond %{REQUEST_URI} !^/reverseProxy.php$
+RewriteRule ^(.*)$ reverseProxy.php?q=$1 [L,QSA]
