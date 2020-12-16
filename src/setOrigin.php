@@ -1,5 +1,8 @@
 <?php
 
+// Include a config file
+$config = parse_ini_file('config.ini');
+
 // connect to DB
 $dbConnection =  new mysqli(getenv('DBHOST'), getenv('DBUSR'), getenv('DBPASS'), getenv('DBSCHEMA'), getenv('DBPORT'));
 // if we cant connect, respond with server error
@@ -9,10 +12,17 @@ if ($dbConnection->connect_error) {
 	exit;
 }
 
-// check to see if we were posted to
+// If an origin is specified in the config file, use that instead of asking
+// the user for one. This makes it easy to switch from hardcoded to requested
+// origin.
 $tmpOrigin = '';
-if(isset($_POST['tmpOrigin'])) {
-	$tmpOrigin = $_POST['tmpOrigin'];
+if (array_key_exists('origin', $config) && $config['origin'] != '') {
+    $tmpOrigin = $config['origin'];
+} else {
+    // check to see if we were posted to
+    if(isset($_POST['tmpOrigin'])) {
+        $tmpOrigin = $_POST['tmpOrigin'];
+    }
 }
 
 if(! filter_var($tmpOrigin, FILTER_VALIDATE_URL)) {
